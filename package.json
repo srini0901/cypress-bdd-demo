@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --reporter mochawesome"
+    "test": "cypress run --headed --browser chrome",
+    "cypress:run": "cypress run --headless --browser chrome"
   },
   "keywords": [],
   "author": "",
