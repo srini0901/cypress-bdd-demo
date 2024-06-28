@@ -12,23 +12,23 @@ Before running the tests, ensure you have the following installed:
 
 ## Project Structure
 
+The project follows a standard structure for organizing Cypress tests and related files:
 
-cypress/
-│
-├── fixtures/         # Test data files (if any)
-├── integration/      # Cypress test files (feature files, step definitions)
-│   ├── features/     # Gherkin feature files
-│   ├── step_definitions/  # Step definitions for Gherkin steps
-├── plugins/          # Cypress plugins (if any)
-├── support/          # Additional support files (page objects, utilities)
-│   ├── page_objects/ # Page Object Model (POM) classes
-│   ├── commands.js   # Custom Cypress commands (if any)
-├── videos/           # Cypress test videos (if recorded)
-├── screenshots/      # Screenshots (if captured during tests)
-├── ...
-├── cypress.json      # Cypress configuration file
-└── tsconfig.json     # TypeScript configuration (if using TypeScript)
+- **cypress/**
+  - **fixtures/**: Contains test data files (if any).
+  - **integration/**: Main folder for Cypress test files.
+    - **features/**: Stores Gherkin feature files describing test scenarios.
+    - **step_definitions/**: Holds JavaScript files defining step implementations for feature scenarios.
+  - **plugins/**: Cypress plugins (if any).
+  - **support/**: Additional support files for tests.
+    - **page_objects/**: Houses Page Object Model (POM) classes for interacting with web elements.
+    - **commands.js**: Custom Cypress commands if extended.
+  - **videos/**: Cypress test videos (if recorded).
+  - **screenshots/**: Screenshots (if captured during tests).
+  - **cypress.json**: Configuration file for Cypress.
+  - **tsconfig.json**: TypeScript configuration (if using TypeScript).
 
+  
 	- **fixtures/**: Contains test data files if needed for tests.
 - **integration/**: Main folder for Cypress tests.
   - **features/**: Stores Gherkin feature files describing test scenarios.
