@@ -22,11 +22,11 @@ module.exports = defineConfig({
     supportFile: 'cypress/support/e2e.js',
     stepDefinitions: 'cypress/e2e/step_definitions/*.js'
   },
-  "reporter": "mochawesome",
-    "reporterOptions": {
-      "reportDir": "cypress/reports",
-      "overwrite": false,
-      "html": false,
-      "json": true
-    }
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true,
+  },
 });
