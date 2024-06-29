@@ -12,11 +12,11 @@ class CheckoutPage {
     }
   
     clickContinueButton() {
-      cy.get('[data-test="continue"]').click();
+      cy.get('[value="CONTINUE"]').click();
     }
   
     clickFinishButton() {
-      cy.get('[data-test="finish"]').click();
+      cy.get('[class="btn_action cart_button"]').click();
     }
   }
   
