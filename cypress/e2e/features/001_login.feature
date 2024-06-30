@@ -1,4 +1,4 @@
-Feature: Login
+Feature: 001_Login_Feature
 
   Scenario: Successful login
     Given I visit the Sauce Demo login page

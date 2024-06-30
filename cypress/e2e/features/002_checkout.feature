@@ -1,4 +1,4 @@
-Feature: Checkout
+Feature: 002_Checkout Feature
 
   Scenario Outline: Add products to cart and complete checkout
     Given I am logged in as a standard user
