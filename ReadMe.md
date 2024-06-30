@@ -53,7 +53,7 @@ The project follows a standard structure for organizing Cypress tests and relate
     
 Installs all dependencies listed in package.json, including Cypress.
 
-3.  **nRun Cypress Test Runner:**
+3.  **Run Cypress Test Runner:**
     npx cypress open
 
 Opens the Cypress Test Runner GUI where you can interactively run and debug tests.
@@ -158,3 +158,52 @@ Then('I should be on the checkout page', () => {
   cy.url().should('include', '/checkout');
 });
 </pre>
+
+### Running tests locally
+  npm run test
+
+## Running Tests in CI with GitHub Actions
+
+### GitHub Actions Workflow
+
+The GitHub Actions workflow is defined in `.github/workflows/ci.yml`.
+
+```yaml
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Clean previous reports
+        run: npm run clean:reports
+
+      - name: Run Cypress tests
+        run: npm run test
+
+      - name: Generate Mochawesome report
+        run: npm run posttest
+
+      - name: Upload Mochawesome report
+        uses: actions/upload-artifact
+        with:
+          name: Mochawesome Report
+          path: cypress/re​⬤
