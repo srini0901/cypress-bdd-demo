@@ -25,7 +25,7 @@ module.exports = defineConfig({
     stepDefinitions: "cypress/e2e/step_definitions/*.js",
   },
 
-  reporter: "cypress-mochawesome-reporter",
+  reporter: "mochawesome",
 
   reporterOptions: {
     reportDir: "cypress/reports",

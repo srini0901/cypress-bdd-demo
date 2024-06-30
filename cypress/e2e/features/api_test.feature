@@ -1,12 +1,12 @@
-Feature: Sample API Tests
+Feature: API Testing
 
-  Scenario: GET request to retrieve posts
-    When I make a GET request to "/posts"
+  Scenario: GET request to fetch posts
+    Given I make a GET request to "/posts"
     Then the API responds with a status code 200
     And the response body has 100 posts
 
   Scenario: POST request to create a new post
-    When I make a POST request to "/posts" with body:
+    Given I make a POST request to "/posts" with body:
       """
       {
         "title": "foo",
@@ -14,5 +14,5 @@ Feature: Sample API Tests
         "userId": 1
       }
       """
-    Then the API responds with a status code 201
+    Then the API responds with a status code 201 for POST request
     And the response body has the new post details
