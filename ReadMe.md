@@ -1,12 +1,13 @@
 # Cypress Test Automation Project
 
-This project demonstrates how to set up and execute Cypress tests using Page Object Model (POM) for test organization, feature files for BDD scenarios, step definitions for test actions, and Cypress CLI for test execution.
+This project demonstrates how to set up and execute Cypress tests using Page Object Model (POM) for test organization, feature files for BDD scenarios, step definitions for test actions, Cypress CLI for test execution nd GitHub Actions for continuous integration.
+
 
 ## Prerequisites
 
 Before running the tests, ensure you have the following installed:
 
-- Node.js (recommended LTS version)
+- Node.js (recommended LTS version) V20
 - NPM (Node Package Manager)
 - Cypress (installed locally in your project)
 
@@ -206,4 +207,10 @@ jobs:
         uses: actions/upload-artifact
         with:
           name: Mochawesome Report
-          path: cypress/re​⬤
+          path: cypress/re​port
+      
+      - name: Upload Mochawesome report
+        uses: actions/upload-artifact
+        with:
+          name: Mochawesome Report
+          path: cypress/reports/mochareports
