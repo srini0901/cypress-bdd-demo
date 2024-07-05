@@ -18,6 +18,13 @@ class CheckoutPage {
     clickFinishButton() {
       cy.get('[class="btn_action cart_button"]').click();
     }
+
+    checkout(firstName,lastName,zipCode){
+      this.enterFirstName(firstName);
+      this.enterLastName(lastName);
+      this.enterZipCode(zipCode);
+      this.clickContinueButton();
+    }
   }
   
   export default CheckoutPage;

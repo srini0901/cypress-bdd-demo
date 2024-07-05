@@ -13,9 +13,7 @@ const orderConfirmationPage = new OrderConfirmationPage();
 
 Given('I am logged in as a standard user', () => {
   loginPage.visit();
-  loginPage.enterUsername('standard_user');
-  loginPage.enterPassword('secret_sauce');
-  loginPage.clickLoginButton();
+  loginPage.login('standard_user', 'secret_sauce');
 });
 
 When('I add the following products to the cart', (dataTable) => {
@@ -30,10 +28,7 @@ When('I proceed to checkout', () => {
 });
 
 When('I fill in my details with {string}, {string}, and {string}', (firstName, lastName, zipCode) => {
-  checkoutPage.enterFirstName(firstName);
-  checkoutPage.enterLastName(lastName);
-  checkoutPage.enterZipCode(zipCode);
-  checkoutPage.clickContinueButton();
+  checkoutPage.checkout(firstName,lastName,zipCode);
 });
 
 When('I complete the order', () => {

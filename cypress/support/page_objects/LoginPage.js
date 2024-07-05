@@ -18,6 +18,13 @@ class LoginPage {
     verifyErrorMessage(message) {
       cy.get('[data-test="error"]').should('contain.text', message);
     }
+
+    login(username, password){
+      this.enterUsername(username);
+      this.enterPassword(password);
+      this.clickLoginButton()
+
+    }
   }
   
   export default LoginPage;
