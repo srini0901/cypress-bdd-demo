@@ -28,3 +28,9 @@ jobs:
       with:
         name: mochawesome-report
         path: cypress/reports/mochawesome.html
+
+    - name:  Deploy to GitHub Pages
+      uses:  peaceiris/actions-gh-pages@v6
+      with:
+        github_token: $ {{ secrets.GITHUB_TOKEN }}
+        publish_dir:  ./cypress/reports
