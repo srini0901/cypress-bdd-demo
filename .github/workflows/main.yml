@@ -31,9 +31,20 @@ jobs:
         name: mochawesome-report
         path: cypress/reports/mochawesome.html
 
-    - name:  Deploy to GitHub Pages
-      uses:  peaceiris/actions-gh-pages@v4
+    - name:  Upload Pages artifact
+      uses:  actions/upload-pages-artifact@v3
       with:
-        github_token: $ {{ secrets.GITHUB_TOKEN }}
-        publish_dir:  ./cypress/reports
-        publish_branch:  gh-pages
+        path: ./cypress/reports
+      
+
+  deploy:
+   needs: build
+   runs-on: ubuntu-latest
+   environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+   steps:
+     - name:  Deploy to Github Pages
+       id:  deployment
+       uses:  actions/deploy-pages@v4
+    
