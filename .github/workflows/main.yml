@@ -27,6 +27,24 @@ jobs:
     - name: Generate Mochawesome report
       run: npm run posttest
 
+    - name:  Prepare reports folder with timestamp
+      run: |
+       mkdir -p site
+       DATE=$(date + '%Y-%m-%d_%H-%M-%S')
+       mkdir -p site/$DATE 
+       cp cypress/reports/mochawesome.html site/$DATE/index.html
+
+       #Append link to index.html
+       if [! -f site/index.html ];
+          then
+          echo "<html><body><h1>Test Reports</h1></ul>" site/index.html
+          fi
+          echo "<li><a href='$DATE/index.html'>$DATE</a></li>" >> site/index.html
+
+    - name: Close index.html list
+      if:  always()
+      run: echo "</ul></body></html>" >> site/index.htm'
+      
     - name: Upload Mochawesome report
       uses: actions/upload-artifact@v4
       with:
