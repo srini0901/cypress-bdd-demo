@@ -30,7 +30,7 @@ jobs:
     - name:  Prepare reports folder with timestamp
       run: |
        mkdir -p site
-       DATE=$(date + '%Y-%m-%d_%H-%M-%S')
+       DATE=$(date + %Y-%m-%d_%H-%M-%S)
        mkdir -p site/$DATE 
        cp cypress/reports/mochawesome.html site/$DATE/index.html
 
